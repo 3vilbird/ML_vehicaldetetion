@@ -31,6 +31,9 @@ max_area = 10000
 
 while True:
     ret, frame1 = cap.read()
+    if not ret:
+        break  # Break the loop if no frame is captured
+
     grey = cv2.cvtColor(frame1, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(grey, (3, 3), 5)
     # applying on each frame
